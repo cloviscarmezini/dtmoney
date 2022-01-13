@@ -35,4 +35,21 @@ export const Container = styled.div`
             }
         }
     }
+
+    button {
+        width: 100%;
+        padding: 0.2rem 0;
+        background: var(--red);
+        color: #fff;
+        border-radius: 0.25rem;
+        border:0;
+        font-size: 1rem;
+        transition: filter 0.2s;
+        font-weight: 600;
+
+        &:hover {
+            filter: brightness(0.9);
+        }
+    }
 `;
+

@@ -3,7 +3,11 @@ import { Container } from "./styles";
 
 
 export function TransactionsTable() {
-    const { transactions } = useTransactions();
+    const { transactions, deleteTransaction } = useTransactions();
+
+    function handleDeleteTransaction(transaction_id: number) {
+        deleteTransaction(transaction_id);
+    }
 
     return (
         <Container>
@@ -14,6 +18,7 @@ export function TransactionsTable() {
                         <th>Valor</th>
                         <th>Categoria</th>
                         <th>Data</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,6 +38,13 @@ export function TransactionsTable() {
                                     {new Intl.DateTimeFormat('pt-BR').format(
                                         new Date(transaction.createdAt)
                                     )}
+                                </td>
+                                <td>
+                                    <button
+                                        onClick={() => handleDeleteTransaction(transaction.id)}
+                                    >
+                                        Delete
+                                    </button>
                                 </td>
                             </tr>
                         ))
